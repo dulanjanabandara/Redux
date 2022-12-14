@@ -1,52 +1,22 @@
 import React from "react";
-// components
+import { createStore } from "redux";
+import reducer from "./reducer";
+import { DECREASE, INCREASE } from "./actions";
+
 import Navbar from "./components/Navbar";
 import CartContainer from "./components/CartContainer";
-// items
 import cartItems from "./cart-items";
-// redux stuff
-
-import { createStore } from "redux";
 
 const initialStore = {
   count: 0,
   name: "john",
 };
 
-const DECREASE = "DECREASE";
-const INCREASE = "INCREASE";
-const RESET = "RESET";
-const CHANGE_NAME = "CHANGE_NAME";
-
-// reducer
-function reducer(state, action) {
-  console.log({ state, action });
-
-  if (action.type === DECREASE) {
-    return { ...state, count: state.count - 1 };
-  }
-
-  if (action.type === "INCREASE") {
-    return { ...state, count: state.count + 1 };
-  }
-
-  if (action.type === "RESET") {
-    return { ...state, count: 0 };
-  }
-
-  if (action.type === "CHANGE_NAME") {
-    return { ...state, name: "smilga" };
-  }
-
-  return state;
-}
-
 const store = createStore(reducer, initialStore);
+
 store.dispatch({ type: DECREASE });
-store.dispatch({ type: "CHANGE_NAME" });
-store.dispatch({ type: "RESET" });
-store.dispatch({ type: "INCREASE" });
-store.dispatch({ type: "INCREASE" });
+store.dispatch({ type: INCREASE });
+store.dispatch({ type: INCREASE });
 
 console.log(store.getState());
 
