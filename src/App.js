@@ -5,15 +5,8 @@ import reducer from "./reducer";
 
 import Navbar from "./components/Navbar";
 import CartContainer from "./components/CartContainer";
-import cartItems from "./cart-items";
 
-const initialStore = {
-  cart: cartItems,
-  total: 100,
-  amount: 5,
-};
-
-const store = createStore(reducer, initialStore);
+const store = createStore(reducer);
 
 function App() {
   // cart setup
