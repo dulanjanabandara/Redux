@@ -6,7 +6,7 @@ import reducer from "./reducer";
 import Navbar from "./components/Navbar";
 import CartContainer from "./components/CartContainer";
 
-const store = createStore(reducer);
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 function App() {
   // cart setup
